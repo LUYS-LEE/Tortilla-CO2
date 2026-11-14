@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B4E7FB"/>
+      <stop offset="0.45" stop-color="#7FCBF3"/>
+      <stop offset="1" stop-color="#4FA8E6"/>
+    </linearGradient>
+    <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dy="10"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feFlood flood-color="#155A9E"/><feComposite operator="in" in2="SourceGraphic"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#sea)"/>
+  <!-- sunlight through clear water -->
+  <g fill="url(#ray)" opacity="0.55">
+    <polygon points="120,0 180,0 120,360 70,360"/>
+    <polygon points="250,0 290,0 300,300 250,300"/>
+    <polygon points="370,0 420,0 470,330 420,330"/>
+  </g>
+  <!-- small manta gliding behind the mask -->
+  <g transform="translate(372 426) rotate(7) scale(0.62)" fill="#2C7DC8" opacity="0.45">
+    <path d="M-8 -38 C-10 -46 -12 -53 -17 -54 C-24 -53 -25 -45 -22 -36
+             C-48 -36 -92 -14 -128 14 C-98 18 -62 24 -40 34 C-28 40 -16 50 0 54
+             C16 50 28 40 40 34 C62 24 98 18 128 14 C92 -14 48 -36 22 -36
+             C25 -45 24 -53 17 -54 C12 -53 10 -46 8 -38 C3 -40 -3 -40 -8 -38 Z"/>
+    <path d="M0 50 Q4 92 -3 140" fill="none" stroke="#2C7DC8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- bubbles -->
+  <g fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="5">
+    <circle cx="108" cy="112" r="13"/>
+    <circle cx="140" cy="76" r="8"/>
+    <circle cx="122" cy="48" r="5"/>
+  </g>
+  <!-- twin-lens mask, no strap, no nose pocket -->
+  <path filter="url(#shadow)" fill="#fff" fill-rule="evenodd" d="
+    M256 178 C312 168 370 164 404 168 C434 172 448 192 446 222 L444 252 C442 292 418 318 378 322
+    C342 326 312 318 292 304 C280 296 268 292 256 292 C244 292 232 296 220 304
+    C200 318 170 326 134 322 C94 318 70 292 68 252 L66 222 C64 192 78 172 108 168 C142 164 200 168 256 178 Z
+    M276 198 C316 190 360 188 396 191 C414 193 424 205 423 224 L422 248 C420 278 402 297 374 299
+    C346 301 320 294 304 282 C290 272 280 258 277 240 Z
+    M236 198 C196 190 152 188 116 191 C98 193 88 205 89 224 L90 248 C92 278 110 297 138 299
+    C166 301 192 294 208 282 C222 272 232 258 235 240 Z"/>
+  <!-- lens glare -->
+  <g stroke="#fff" stroke-linecap="round" opacity="0.55">
+    <line x1="320" y1="270" x2="344" y2="220" stroke-width="10"/>
+    <line x1="134" y1="270" x2="158" y2="220" stroke-width="10"/>
+  </g>
+</svg>
